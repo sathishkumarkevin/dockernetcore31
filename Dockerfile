@@ -18,7 +18,7 @@ RUN dotnet publish -c Release -o out
 # Use Microsoft's official runtime .NET image.
 # https://hub.docker.com/_/microsoft-dotnet-core-aspnet/
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
-RUN chown -R 1001:0 /opt/app-root && fix-permissions /opt/app-root
+RUN chown -R 1001:0 /app && fix-permissions /app
 WORKDIR /app
 COPY --from=build /app/out ./
 # Run the web service on container startup.
