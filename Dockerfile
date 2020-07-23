@@ -2,7 +2,8 @@
 # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 WORKDIR /app
- 
+EXPOSE 80
+EXPOSE 443 
 # Install production dependencies.
 # Copy csproj and restore as distinct layers.
 COPY *.csproj ./
