@@ -1,6 +1,6 @@
 # Use Microsoft's official .NET image.
 # https://hub.docker.com/r/microsoft/dotnet
-FROM microsoft/dotnet:3.1-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
 
 # Install production dependencies.
 # Copy csproj and restore as distinct layers.
