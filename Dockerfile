@@ -20,5 +20,7 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
+RUN chown -R 1001:0 /opt/app-root && fix-permissions /opt/app-root
 
-CMD ASPNETCORE_URLS=http://*:8080 dotnet dotnet31app.dll
+# Run the web service on container startup.
+ENTRYPOINT ["dotnet", "dotnet31app.dll"]
