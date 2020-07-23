@@ -21,7 +21,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
-EXPOSE 8080
-ENV ASPNETCORE_URLS=http://*:8080
-# Run the web service on container startup.
-ENTRYPOINT ["dotnet", "dotnet31app.dll"]
+CMD ASPNETCORE_URLS=http://*:8080 dotnet dotnet31app.dll
